@@ -141,12 +141,22 @@ class ExtendedTuringMachine(TuringMachine):
         print("Transiciones aleatorias definidas:")
         print(tabla_transiciones)
 
+def mostrar_integrantes():
+    table = PrettyTable()
+    print('\n\n\t\t\tIntegrantes')    
+    table.field_names = ['Nombre', 'Carne']    
+    table.add_row(["VICTOR MANUEL MONJE OXLAJ", "5090-22-1172"])
+    table.add_row(["ELMER DANIEL PÉREZ AVILA", "5090-22-3700"])
+    table.add_row(["RAMIRO JOSÉ INTERIANO ORANTES", "5090-22-2434"])
+    table.add_row(["DAVID ANTONIO MÉNDEZ ESTRADA", "5090-22-3128"])
+    print(table)
 
 
 def menu():
     maquina = ExtendedTuringMachine({})
     
     while True:
+        mostrar_integrantes()
         print("\n--- Menú de Máquina de Turing ---")
         print("1. Generar cinta aleatoria")
         print("2. Cargar cinta desde archivo")
