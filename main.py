@@ -19,6 +19,7 @@ class ExtendedTuringMachine(TuringMachine):
         self.tape = [random.choice(['0', '1', '^']) for _ in range(largo)]
         self.tape_preview = self.tape.copy()
         print(f"Cinta generada: {self.tape}")
+        self.definir_transiciones_aleatorias()
 
     def cargar_cinta(self, archivo):
         try:
@@ -160,13 +161,12 @@ def menu():
         print("\n--- Menú de Máquina de Turing ---")
         print("1. Generar cinta aleatoria")
         print("2. Cargar cinta desde archivo")
-        print("3. Definir transiciones automáticamente")
-        print("4. Operar la máquina")
-        print("5. Mostrar la cinta actual")
-        print("6. Guardar cinta en archivo")
-        print("7. Salir")
+        print("3. Operar la máquina")
+        print("4. Mostrar la cinta actual")
+        print("5. Guardar cinta en archivo")
+        print("6. Salir")
 
-        opcion = input("Selecciona una opción (1-7): ")
+        opcion = input("Selecciona una opción (1-6): ")
 
         if opcion == '1':
             maquina.generar_cinta_aleatoria()
@@ -174,23 +174,19 @@ def menu():
         elif opcion == '2':
             archivo = input("Ingrese el nombre del archivo para cargar la cinta: ")
             maquina.cargar_cinta(archivo)
-
         elif opcion == '3':
-            maquina.definir_transiciones_aleatorias()  # Define transiciones automáticamente
-
-        elif opcion == '4':
             estado_inicial = input("Ingrese el estado inicial (e.g., 'q0'): ")
             estado_paro = input("Ingrese el estado de paro (e.g., 'qa'): ")
             maquina.operar_maquina(estado_inicial, estado_paro)
 
-        elif opcion == '5':
+        elif opcion == '4':
             maquina.mostrar_cinta()
 
-        elif opcion == '6':
+        elif opcion == '5':
             archivo = input("Ingrese el nombre del archivo para guardar la cinta: ")
             maquina.guardar_cinta(archivo)
 
-        elif opcion == '7':
+        elif opcion == '6':
             print("Saliendo del programa.")
             break
 
